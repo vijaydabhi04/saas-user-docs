@@ -1,202 +1,70 @@
-# New Document
+# **Introduction**
 
-Start editing here.asd
+## **About NextAuth.js**[**​**](https://next-auth.js.org/getting-started/introduction#about-nextauthjs)
 
-a
+NextAuth.js is a complete open-source authentication solution for [**Next.js**](http://nextjs.org/) applications.
 
-ad
+It is designed from the ground up to support Next.js and Serverless.
 
-asds
+[**Check out the example code**](https://next-auth.js.org/getting-started/example) to see how easy it is to use NextAuth.js for authentication.
 
-ad  
-The code returns the following error:
+### **Flexible and easy to use**[**​**](https://next-auth.js.org/getting-started/introduction#flexible-and-easy-to-use)
 
-```
-monaco.languages.getMonarchTokensProvider is not a function
-
-  at (/components/monaco-editor)
-
-```
-
-Revise the code to address the error.
-
-I was previewing: /
-
-Thought for 3 seconds
-
-Let me fix the Monaco editor component to address the error:
-
-**Version 9**
-
-**Restore**
-
-**View**
-
-I've fixed the error by completely rewriting the Monaco editor implementation. The issue was that I was trying to use `monaco.languages.getMonarchTokensProvider`, which doesn't exist in the Monaco Editor API.
-
-### **Key Changes:**
-
-1.  **Custom MDX Language Definition**: I've created a complete custom tokenizer for MDX from scratch, which properly handles:
+*   Designed to work with any [**OAuth service, it supports OAuth 1.0, 1.0A, 2.0 and OpenID Connect**](https://next-auth.js.org/providers)
     
-    *   Markdown syntax (headers, lists, emphasis, etc.)
-        
-    *   JSX/HTML tags and attributes
-        
-    *   Code blocks with language-specific highlighting
-        
-    *   Links and images
-        
-2.  **Simplified Preview Component**: I've removed the dependency on `react-syntax-highlighter` and implemented a simpler code block component that uses basic styling.
+*   Built-in support for [**many popular sign-in services**](https://next-auth.js.org/configuration/providers/oauth)
     
-3.  **Improved UI**: I've enhanced the mobile view with proper buttons instead of tabs for better usability.
+*   Supports [**email / passwordless authentication**](https://next-auth.js.org/providers/email)
     
-4.  **Better Error Handling**: The new implementation is more robust and doesn't rely on non-existent API methods.
+*   Supports stateless authentication with [**any backend**](https://authjs.dev/getting-started/database) (Active Directory, LDAP, etc)
+    
+*   Supports both JSON Web Tokens and database sessions
+    
+*   Designed for Serverless but runs anywhere (AWS Lambda, Docker, Heroku, etc…)
     
 
-The editor now provides:
+### **Own your own data**[**​**](https://next-auth.js.org/getting-started/introduction#own-your-own-data)
 
-*   Proper syntax highlighting for MDX content
+NextAuth.js can be used with or without a database.
+
+*   An open-source solution that allows you to keep control of your data
     
-*   Support for HTML/JSX embedded in markdown
+*   Supports Bring Your Own Database (BYOD) and can be used with any database
     
-*   A responsive interface that works on all devices
+*   Built-in support for [**MySQL, MariaDB, Postgres, SQL Server, MongoDB and SQLite**](https://next-auth.js.org/configuration/databases)
     
-*   A split view option for simultaneous editing and preview
+*   Works great with databases from popular hosting providers
     
-
-This implementation should work correctly without the previous error about `monaco.languages.getMonarchTokensProvider`.
-
-![Avatar](https://vercel.com/api/www/avatar/T9uZh6ENT7QWL9rNQeuApCWD?s=64)
-
-in rich text ediore shoe the edit like as words and docs
-
-Thought for 3 seconds
-
-Let me enhance the rich text editor to show formatted content instead of markdown syntax:
-
-**Version 10**
-
-**Restore**
-
-**View**
-
-## **Enhanced WYSIWYG MDX Editor**
-
-I've completely redesigned the rich text editor to provide a true WYSIWYG (What You See Is What You Get) experience. Now, instead of showing markdown syntax, the editor displays formatted content exactly as it will appear in the documentation.
-
-### **Key Features of the New Rich Text Editor:**
-
-1.  **True WYSIWYG Editing**:
-    
-    *   Text appears formatted (bold text is bold, headings look like headings)
-        
-    *   Cards and custom components are rendered visually
-        
-    *   Code blocks show with proper styling
-        
-    *   Images and videos appear as they would in the final document
-        
-2.  **HTML-Based Editing**:
-    
-    *   Uses the browser's built-in contentEditable functionality
-        
-    *   Converts markdown to HTML for editing and back to markdown for storage
-        
-    *   Preserves all custom MDX components during editing
-        
-3.  **Rich Formatting Tools**:
-    
-    *   Format text with bold, italic, headings, etc.
-        
-    *   Insert links, images, and videos with visual prompts
-        
-    *   Add custom cards and HTML blocks with proper styling
-        
-    *   Create code blocks with language specification
-        
-4.  **Seamless Conversion**:
-    
-    *   Automatically converts between markdown and visual representation
-        
-    *   Preserves all formatting and custom components
-        
-    *   Maintains compatibility with the markdown editor mode
-        
-
-### **How It Works**
-
-The editor now:
-
-1.  Converts your markdown to HTML for visual editing
-    
-2.  Renders custom components like cards and videos visually
-    
-3.  Allows direct editing of the formatted content
-    
-4.  Converts back to markdown when you make changes
+*   Can also be used *without a database* (e.g. OAuth + JWT)
     
 
-This gives you the best of both worlds - the simplicity of markdown with the visual feedback of a word processor. You can still switch to the markdown mode when you need precise control over the syntax.
+*Note: Email sign-in requires a database to be configured to store single-use verification tokens.*
 
-### **Usage Tips**
+### **Secure by default**[**​**](https://next-auth.js.org/getting-started/introduction#secure-by-default)
 
-*   Use the toolbar buttons to format text and insert components
+*   Promotes the use of passwordless sign-in mechanisms
     
-*   Double-click on cards and custom components to edit their content
+*   Designed to be secure by default and encourage best practices for safeguarding user data
     
-*   Switch to markdown mode for advanced editing when needed
+*   Uses Cross-Site Request Forgery Tokens on POST routes (sign in, sign out)
     
-*   Use the split view to see both the editor and preview simultaneously
+*   Default cookie policy aims for the most restrictive policy appropriate for each cookie
+    
+*   When JSON Web Tokens are enabled, they are encrypted by default (JWE) with A256GCM
+    
+*   Auto-generates symmetric signing and encryption keys for developer convenience
+    
+*   Features tab/window syncing and keepalive messages to support short-lived sessions
+    
+*   Attempts to implement the latest guidance published by [**Open Web Application Security Project**](https://owasp.org/)
     
 
-This implementation provides a much more intuitive editing experience while maintaining all the power and flexibility of MDX.
+Advanced options allow you to define your own routines to handle controlling what accounts are allowed to sign in, for encoding and decoding JSON Web Tokens and to set custom cookie security policies and session properties, so you can control who can sign in and how often sessions have to be re-validated.
 
-![Avatar](https://vercel.com/api/www/avatar/T9uZh6ENT7QWL9rNQeuApCWD?s=64)
+## **Credits**[**​**](https://next-auth.js.org/getting-started/introduction#credits)
 
-The code returns the following error:
+NextAuth.js is an open-source project that is only possible [**thanks to contributors**](https://next-auth.js.org/contributors).
 
-```
-In HTML, <figcaption> cannot be a descendant of <p>.
-This will cause a hydration error.
+If you would like to financially support the development of NextAuth.js, you can find more information on our [**OpenCollective**](https://opencollective.com/nextauth) page.
 
-  ...
-    <div className="bg-card te..." ref={null} data-v0-t="card">
-      <u>
-      <u __v0_s={{fileName:"...", ...}} __v0_c="196:34:p-0">
-        <CardContent className="p-0">
-          <div className="p-0" ref={null}>
-            <u __v0_s={{fileName:"...", ...}} __v0_c={undefined}>
-              <div className="grid grid-...">
-                <u __v0_s={{fileName:"...", ...}} __v0_c={undefined}>
-                  <div className="bg-white d...">
-                    <u __v0_s={{fileName:"...", ...}} __v0_c={undefined}>
-                      <MDXPreview content={"# Welcom..."}>
-                        <u __v0_s={{fileName:"...", ...}} __v0_c="76:20:pros...">
-                          <div className="prose pros...">
-                            <u __v0_s={{fileName:"...", ...}} __v0_c={undefined}>
-                              <wt options={{...}}>
-                                <div>
-                                  <h1>
-                                  <h2>
-                                  <p>
-                                  <h2>
-                                  <h3>
-                                  <p>
-                                  <h2>
-                                  <component>
-                                  <p>
-                                  <component>
-                                  <h2>
->                                 <p className="my-4 leading-relaxed">
-                                    <component alt="Sample Image" title={undefined} src={"/placeho..."} ...>
-                                      <u __v0_s={{fileName:"...", ...}} __v0_c="106:35:my-6">
-                                        <figure className="my-6">
-                                          <img>
-                                          <u __v0_s={{fileName:"...", ...}} __v0_c="113:49:tex...">
->                                           <figcaption className="text-center text-sm text-muted-foreground mt-2">
-                                  ...
-
-
-```
-
-asd
+## **Getting Started**
